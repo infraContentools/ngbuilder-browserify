@@ -29,12 +29,14 @@ module.exports = (function() {
 	}
 
 	function run(context, options, next) {
+		if (options === false) return next();
+
 		init();
 
 		var modulePath = context.modulePath,
 			moduleName = context.moduleName,
-			publicPath = context.publicPath,
-			includePaths = context.includePaths;
+			publicPath = context.public,
+			includePaths = context.libraries;
 
 		if (typeof includePaths === 'string') {
 			includePaths = [includePaths];
@@ -46,7 +48,7 @@ module.exports = (function() {
 			paths: includePaths,
 			detectGlobals: false,
 			fullPaths: false,
-			builtins: ''
+			builtins: options.builtins || []
 		};
 
 		var pipe = multipipe(
@@ -60,7 +62,6 @@ module.exports = (function() {
 
 		pipe.on('error', next);
 		pipe.on('end', next);
-		pipe.on('finish', next);
 
 		pipe.pipe(gulp.dest(publicPath));
 	}
