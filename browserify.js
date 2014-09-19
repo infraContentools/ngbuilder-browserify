@@ -8,12 +8,12 @@
  */
 
 module.exports = (function() {
-	var gulp, multipipe, browserify, sourceMap, concat, uglify, path, gulpSrcOptions, _initialized;
+	var vinyl, multipipe, browserify, sourceMap, concat, uglify, path, gulpSrcOptions, _initialized;
 
 	function init() {
 		if (_initialized) return;
 
-		gulp = require('gulp');
+		vinyl = require('vinyl-fs');
 		multipipe = require('multipipe');
 		browserify = require('gulp-browserify');
 		sourceMap = require('gulp-sourcemaps');
@@ -52,7 +52,7 @@ module.exports = (function() {
 		};
 
 		var pipe = multipipe(
-			gulp.src(path.join(modulePath, 'index.js'), gulpSrcOptions),
+			vinyl.src(path.join(modulePath, 'index.js'), gulpSrcOptions),
 			browserify(browserifyOptions),
 			sourceMap.init(),
 			concat(moduleName + '.js'),
@@ -63,7 +63,7 @@ module.exports = (function() {
 		pipe.on('error', next);
 		pipe.on('end', next);
 
-		pipe.pipe(gulp.dest(publicPath));
+		pipe.pipe(vinyl.dest(publicPath));
 	}
 
 	return {
