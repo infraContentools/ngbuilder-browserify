@@ -1,0 +1,23 @@
+{
+  "name": "ngbuilder-browserify",
+  "version": "0.0.0",
+  "description": "Browserify bundler for ngbuilder",
+  "main": "browserify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/infraContentools/ngbuilder-browserify"
+  },
+  "keywords": [
+    "ngbuilder",
+    "browserify"
+  ],
+  "author": "Darlan Alves <me@darlanalv.es>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infraContentools/ngbuilder-browserify/issues"
+  },
+  "homepage": "https://github.com/infraContentools/ngbuilder-browserify"
+}
