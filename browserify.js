@@ -8,7 +8,7 @@
  */
 
 module.exports = (function() {
-	var gulp, multipipe, browserify, sourceMap, concat, uglify, path, logger, gulpSrcOptions, _initialized;
+	var gulp, multipipe, browserify, sourceMap, concat, uglify, path, gulpSrcOptions, _initialized;
 
 	function init() {
 		if (_initialized) return;
@@ -20,7 +20,6 @@ module.exports = (function() {
 		concat = require('gulp-concat');
 		uglify = require('gulp-uglify');
 		path = require('path');
-		logger = require('../utils/log');
 
 		gulpSrcOptions = {
 			read: false
@@ -29,7 +28,7 @@ module.exports = (function() {
 		_initialized = true;
 	}
 
-	function run(context) {
+	function run(context, options, next) {
 		init();
 
 		var modulePath = context.modulePath,

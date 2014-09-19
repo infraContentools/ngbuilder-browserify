@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/infraContentools/ngbuilder-browserify/issues"
   },
-  "homepage": "https://github.com/infraContentools/ngbuilder-browserify"
+  "homepage": "https://github.com/infraContentools/ngbuilder-browserify",
+  "dependencies": {
+    "multipipe": "^0.1.1",
+    "gulp-sourcemaps": "^1.2.1",
+    "gulp-concat": "^2.4.1",
+    "gulp": "^3.8.8",
+    "gulp-uglify": "^1.0.1",
+    "gulp-browserify": "^0.5.0"
+  }
 }
